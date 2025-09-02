@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "jest": "^30.0.5",
+    "supertest": "^7.1.4"
+  },
+  "name": "supertest_jest_api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "jest-html-reporter": "^4.3.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "reporters": [
+      "default",
+      "jest-html-reporter"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

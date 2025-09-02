@@ -1,0 +1,13 @@
+   
+   {
+   "firstname": "Bisteca",
+    "lastname": "Flor",
+    "totalprice": 195,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2025-01-01",
+        "checkout": "2025-02-01"
+    },
+     
+    "additionalneeds": "Breakfast yes"
+   }
