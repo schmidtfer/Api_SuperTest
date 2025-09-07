@@ -1,7 +1,7 @@
 
  const request = require('supertest');
- const config = require('./fixtures/config.json'); //aqui eu importo o arquivo json como objeto
- const ApiUrl = config.apiUrl;
+ const config = require('./fixtures/config.json'); //aqui eu importo o arquivo json como objeto, objeto inteiro
+ const ApiUrl = config.apiUrl; //Para acessar apenas a string da URL (que o Supertest precisa), você usa o ponto (.) para acessar a propriedade:
  
 
 
@@ -10,7 +10,7 @@
  describe('Autenticação com o Token', () => {
     let token = '';
 
-    it('Deve fazer o login e obter um token de autenticação', () => {
+    it('Deve fazer o login com sucesso na API e obter um token de autenticação', () => {
    
 
     return request(ApiUrl)

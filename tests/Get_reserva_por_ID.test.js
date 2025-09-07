@@ -1,5 +1,5 @@
-//o jest vai rodar o superTeste, vai executar o teste e o teste vai ser desenvolvido
-//em supertest
+//o jest vai rodar o superTeste, vai executar o teste.
+//  o teste vai ser desenvolvido em supertest
 
 const request = require("supertest");
 const config = require("./fixtures/config.json");
@@ -9,9 +9,9 @@ const ApiUrl = config.apiUrl; //Ao usar const ApiUrl = config.apiUrl;, você est
 const reservaPayload = require("./fixtures/reservaPayload.json");
 
 describe("Reserva de Quartos", () => {
-  let bookingId = "";
+  let bookingId = "";  //variável global para armazenar o ID da reserva criada no beforeAll
 
-  beforeAll(() => {
+  beforeAll(() => {             //primeiro preciso fazer uma reserva (POST) para depois buscar por ID
     return request(ApiUrl)
       .post("/booking")
       .send(reservaPayload)

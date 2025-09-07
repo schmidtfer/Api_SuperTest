@@ -5,10 +5,10 @@ const ApiUrl = config.apiUrl;// Aqui ApiUrl será "https://restful-booker.heroku
 
 const payload = require('./fixtures/dataPostReserva.json')
 
-describe('Criando uma reserva', () => {
+describe('Criando  reserva', () => {
     let bookingId = '';
 
-    it('Deve criar uma nova reserva e obter o ID (POST)', () => {
+    it('Deve criar uma reserva com sucesso e obter o ID (POST)', () => {
         return request(ApiUrl)
             .post("/booking")
             .send(payload) // Usa a const declarada lá em cima
@@ -25,21 +25,21 @@ describe('Criando uma reserva', () => {
                 console.log('O valor do seu bookingId é: ' + bookingId);
             });
     });
-    it('Deve retornar 404 ao tentar criar reserva em rota inexistente', () => {
+    it('Deve retornar 404 ao tentar criar reserva em uma url inexistente', () => {
         return request(ApiUrl)
-            .post("/booking_invalido")
+            .post("/bookin12") // url inválida
             .send(payload)
             .set('Content-Type', 'application/json')
             .set('Accept', 'application/json')
             .expect(404);
     });
 
-    it('Deve retornar 500 ao tentar criar reserva sem dados obrigatórios', () => {
+    it('Deve retornar 500 ao tentar criar reserva sem payload', () => {
         return request(ApiUrl)
             .post("/booking")
             .send({}) // payload vazio
             .set('Content-Type', 'application/json')
             .set('Accept', 'application/json')
-            .expect(500); // ou o status que a API retorna para forbidden
+            .expect(500); //Nessa APi só aceita 500, e não 404.
     });
 });
