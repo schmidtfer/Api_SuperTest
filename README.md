@@ -1,4 +1,6 @@
-## Projeto SUPER TEST COM JEST
+## Projeto SUPERTEST COM JEST
+//o jest vai rodar o superTeste ->executar o teste.
+//  o teste vai ser desenvolvido em supertest
 
 ## Comando para rodar todos os teste:
 npm test
@@ -16,12 +18,9 @@ npm install --save-dev jest-html-reporter
     ]
   }
 
-## O beforeAll é um hook do Jest que executa uma função antes de todos os testes de um bloco describe.
-Ele é usado para preparar o ambiente de teste, como criar dados necessários, inicializar variáveis, ou configurar conexões.
-
-
+## O beforeAll é um hook executa uma função antes de todos os testes de um bloco describe.
 ## Evita repetição: Você cria dados uma única vez para todos os testes do bloco.
-//Garante dados válidos: Por exemplo, cria uma reserva antes de testar o GET, garantindo que o bookingId existe.
+//Garante dados válidos: Por exemplo, cria uma reserva antes de testar o GET (cria o POST), garantindo que o bookingId existe.
 Deixa o teste mais limpo: O teste foca só na validação, não na preparação dos dados.
 
 ## beforeEach é executado antes de cada it (teste individual) dentro do bloco describe.
