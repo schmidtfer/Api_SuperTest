@@ -7,12 +7,11 @@ const payload = require('./fixtures/dataPostReserva.json')
 
 describe('Criando  reserva', () => {
     let bookingId = '';
-    let urlReturn =''
-
+ 
     it('Deve criar uma reserva com sucesso e obter o ID (POST)', () => {
         return request(ApiUrl)
             .post("/booking")
-            .send(payload) // Usa a const declarada lá em cima
+            .send(payload) 
             .set('Content-Type', 'application/json')  //campo obrigatório no header
             .set('Accept', 'application/json')
             .then(response => {
