@@ -23,7 +23,7 @@
             
         token = response.body.token//armazenando o id da reserva
 
-         console.log('O valor do seu token é: ' + token);
+         console.log('Login realizado com sucesso, token de autenticação: ' + token + ', status code: ' + response.status  + ' OK');
     })
  })
 })

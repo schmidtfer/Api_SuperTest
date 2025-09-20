@@ -7,6 +7,7 @@ const payload = require('./fixtures/dataPostReserva.json')
 
 describe('Criando  reserva', () => {
     let bookingId = '';
+    let urlReturn =''
 
     it('Deve criar uma reserva com sucesso e obter o ID (POST)', () => {
         return request(ApiUrl)
@@ -22,7 +23,8 @@ describe('Criando  reserva', () => {
                 bookingId = response.body.bookingid;
 
 
-                console.log('O valor do seu bookingId é: ' + bookingId);
+                console.log('Reserva criada com sucesso, o valor do seu bookingId é: ' + bookingId + ', status code: ' + response.status  + ' OK');
+          
             });
     });
     it('Deve retornar 404 ao tentar criar reserva em uma url inexistente', () => {
@@ -31,7 +33,10 @@ describe('Criando  reserva', () => {
             .send(payload)
             .set('Content-Type', 'application/json')
             .set('Accept', 'application/json')
-            .expect(404);
+            .then(response => { 
+                expect(response.status).toBe(404);
+                console.log('Url inválida, status code: ' + response.status + ' Not Found');
+            });   
     });
 
     it('Deve retornar 500 ao tentar criar reserva sem payload', () => {
@@ -40,6 +45,10 @@ describe('Criando  reserva', () => {
             .send({}) // payload vazio
             .set('Content-Type', 'application/json')
             .set('Accept', 'application/json')
-            .expect(500); //Nessa APi só aceita 500, e não 404.
+            .then(response => {
+                 expect(response.status).toBe(500); 
+                    console.log('Payload vazio, status code: ' + response.status  + ' Internal Server Error');
+            })
+           
     });
 });

@@ -7,7 +7,7 @@ const reservaPayload = require('./fixtures/reservaPayload.json');
 describe('Deletar reserva com sucesso', () => {
     let bookingId = '';
 
-    //pré condição: criar uma reserva (POST) para depois atualizar o nome (PUT)
+    //pré condição: criar uma reserva (POST) para depois deletar (Delete)
 
     beforeEach(() => {
         return request(ApiUrl)
